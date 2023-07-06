@@ -1,0 +1,20 @@
+name: Build the image
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: fedora:38
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install podman
+      run: sudo dnf install podman -y
+    - name: Build the image
+      run: podman build . --file Containerfile --tag asciidoctor:$(date +%s)
