@@ -1,5 +1,5 @@
 
-# asciidoc-oci
+# asciidoc
 
 > A container image for building asciidoc documents.
 
