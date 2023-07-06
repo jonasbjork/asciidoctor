@@ -17,13 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Create a version number for the container image
-      id: versionId
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
     - name: Build the image
-      run: docker build . --file Containerfile --tag ${{ env.IMAGE_NAME }}:${{ steps.versionId.outputs.date }}
+      run: docker build . --file Containerfile --tag ${{ env.IMAGE_NAME }}:latest
     - name: Log into registry ${{ env.REGISTRY }}
       run: docker login ${{ env.REGISTRY }} -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
     - name: Push to registry
-      run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.versionId.outputs.date }}
+      run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
  
