@@ -11,10 +11,7 @@ env:
   IMAGE_NAME: jonasbjork/asciidoctor
 
 jobs:
-  permissions:
-    content: read
-    packages: write
-
+  
   build:
 
     runs-on: ubuntu-latest
