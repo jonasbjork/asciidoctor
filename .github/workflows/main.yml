@@ -10,8 +10,9 @@ jobs:
 
   build:
 
-    runs-on: fedora:38
-
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:38
     steps:
     - uses: actions/checkout@v3
     - name: Install podman
