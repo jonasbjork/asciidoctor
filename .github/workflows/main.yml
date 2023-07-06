@@ -25,5 +25,5 @@ jobs:
     - name: Log into registry ${{ env.REGISTRY }}
       run: docker login ${{ env.REGISTRY }} -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
     - name: Push to registry
-      run: docker push ${{ env.IMAGE_NAME }}:${{ steps.versionId.outputs.date }}
+      run: docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.versionId.outputs.date }}
  
