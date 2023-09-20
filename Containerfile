@@ -1,4 +1,4 @@
-FROM fedora:37
+FROM fedora:38
 LABEL org.opencontainers.image.authors="jonas.bjork@gmail.com"
 
 RUN dnf upgrade -y
